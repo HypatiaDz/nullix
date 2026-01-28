@@ -676,3 +676,13 @@
 </script>
 </body>
 </html>
+<script>
+  // Hàm tự động cập nhật link từ file JSON
+  fetch('links.json')
+    .then(response => response.json())
+    .then(data => {
+      if(data.delta) document.getElementById('btn-delta').href = data.delta;
+      if(data.codex) document.getElementById('btn-codex').href = data.codex;
+    })
+    .catch(err => console.error("Không lấy được link mới:", err));
+</script>
